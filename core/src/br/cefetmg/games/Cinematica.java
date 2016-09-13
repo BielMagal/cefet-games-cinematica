@@ -35,6 +35,7 @@ public class Cinematica extends ApplicationAdapter {
     private Perseguir perseguir;
     private Vagar vagar;
     private Fugir fugir;
+    private Chegar chegar;
     private Algoritmo algoritmoCorrente;
 
     public Vector3 posicaoAleatoria() {
@@ -73,6 +74,8 @@ public class Cinematica extends ApplicationAdapter {
         // comportamentos disponíveis
         perseguir = new Perseguir(40);
         perseguir.alvo = objetivo;
+        chegar = new Chegar(40);
+        chegar.alvo = perseguir.alvo;
         vagar = new Vagar(40, 2);
         fugir = new Fugir(40);
         fugir.alvo = perseguir.alvo;
@@ -135,6 +138,9 @@ public class Cinematica extends ApplicationAdapter {
                         break;
                     case Keys.S:
                         algoritmoCorrente = perseguir;
+                        break;
+                    case Keys.C:
+                        algoritmoCorrente = chegar;
                         break;
                 }
                 return true;
